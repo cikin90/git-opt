@@ -1,0 +1,17 @@
+.my_width{
+    text-align: left;
+    width: 100px;
+}
+
+.sort{
+    width: 20px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 0 0 10px;
+}
+.sort_up{
+    background: left top url(../img/sort.png) no-repeat;
+}
+.sort_down{
+    background: left bottom url(../img/sort.png) no-repeat;
+}
