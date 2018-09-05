@@ -1,8 +1,8 @@
 <?php  
-$servername="cikin.atthost24.pl";
-$username="3931_mail_opt";
-$password="Password123";
-$baza="3931_mail_opt";
+$servername="localhost";
+$username="root";
+$password="";
+$baza="IMAP_mail";
 /*mysql_connect($cfgHote, $cfgUser, $cfgPass) or die("Nie można połączyć się z bazą danych w tym momencie. Spróbuj później. Przepraszamy.");
 mysql_query('SET character_set_connection=utf8_polish_ci');
 mysql_query('SET character_set_client=utf8_polish_ci');

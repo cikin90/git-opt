@@ -5,6 +5,7 @@ include 'config.inc.php';
 include 'gora.inc.php';
 include 'funkcje.inc.php';
 
+//include 'vendor/autoload.php';
 
 echo '<div class="container">';
 include 'pobieranie_IMAP.inc.php';
@@ -70,13 +71,17 @@ $zapytanie = "SELECT * FROM lista_mail ORDER BY m_data ".sortowanie()." LIMIT ".
 $result = $conn->query($zapytanie);
 while($wynik = mysqli_fetch_array($result))
 {
-    if(in_array($wynik['m_id'],$nowa,true)){$m_nowa='alert-primary';}else{$m_nowa='';}
+    if(isset($nowa) and in_array($wynik['m_id'],$nowa,true)){$m_nowa='alert-primary';}else{$m_nowa='';}
     
     if($wynik['m_flaga'] == 1){$flaga='font-weight-bold';}else{$flaga='';}
+    $szukany = '/(O|o)(P|p)(T|t)(e|E)(A|a)(M|m)/';
+    if($wynik['m_szukane']==1)
+    {$szukane_flaga = 'text-success';}else{$szukane_flaga = 'text-dark';}
     
+    //if(preg_match($szukany, $wynik['m_tresc']) or preg_match($szukany, $wynik['m_temat'])){$m_szukane='1';}else{$m_szukane='0';}
     echo '<tr class=" '.$m_nowa.' ">';
         echo '<th scope="col">'.$i.'</th>';
-            echo '<td><a class="text-dark '.$flaga.'" href="wiadomosc.php?m_id='.$wynik['m_id'].'">'.$wynik['m_temat'].'</a></td>';
+            echo '<td><a class="'.$flaga.' '.$szukane_flaga.'" href="wiadomosc.php?m_id='.$wynik['m_id'].'">'.$wynik['m_temat'].'</a></td>';
             echo '<td>'.data_czas($wynik['m_data']).'</td>';
             echo '<td class="my_width">';
                 echo '<div class="dropdown dropleft">';

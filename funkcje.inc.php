@@ -210,4 +210,20 @@ function sortowanie_icon(){
     }
 }
 /* sortowanie icon KONIEC */
+
+/* zmiana polskich znkow */
+/*
+function zmiana_znakow($item)
+{
+    $znaki = array (
+        '#E6'=>'c',
+        '=E6'=>'C4=87',
+        'C4'=>'www'
+			);
+        
+  			
+  			$item = strtr($item, $znaki);
+				return $item;
+    
+}*/
 ?>
